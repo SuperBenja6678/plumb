@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Phone, Wrench, Droplets, Settings, ArrowLeft, CheckCircle } from 'lucide-react'
+import { Phone, Wrench, Droplets, ArrowLeft, CheckCircle } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {

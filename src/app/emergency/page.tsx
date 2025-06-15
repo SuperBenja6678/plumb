@@ -130,7 +130,7 @@ export default function EmergencyPage() {
             24/7 Emergency Plumbing
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Fast response emergency plumbing services across Dublin, Meath, Louth & Offaly. Don't let plumbing emergencies cause extensive damage to your property.
+            Fast response emergency plumbing services across Dublin, Meath, Louth & Offaly. Don&apos;t let plumbing emergencies cause extensive damage to your property.
           </p>
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             <div className="flex items-center space-x-2 text-gray-700">
@@ -256,7 +256,7 @@ export default function EmergencyPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Don't Wait - Call Now!
+            Don&apos;t Wait - Call Now!
           </h2>
           <p className="text-xl text-gray-600 mb-8">
             Every minute counts in a plumbing emergency. Our experienced team is ready to help 24/7.
