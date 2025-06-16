@@ -1,9 +1,49 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Phone, MapPin, Clock, Wrench, Droplets, CheckCircle, Mail, User } from 'lucide-react'
+import emailjs from '@emailjs/browser'
+import { emailjsConfig } from '@/lib/emailjs-config'
 
 export default function HomePage() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    
+    const templateParams = {
+      from_name: formData.get('name'),
+      from_phone: formData.get('phone'),
+      from_email: formData.get('email'),
+      service: formData.get('service'),
+      message: formData.get('message'),
+    }
+
+    try {
+      // EmailJS configuration - replace with your actual credentials
+      await emailjs.send(
+        emailjsConfig.serviceId,
+        emailjsConfig.templateId,
+        templateParams,
+        emailjsConfig.publicKey
+      )
+      setSubmitStatus('success')
+      form.reset()
+    } catch (error) {
+      console.error('EmailJS error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <main className="min-h-screen bg-white">
       {/* Header */}
@@ -12,13 +52,13 @@ export default function HomePage() {
           <div className="flex items-center space-x-3">
             <Image
               src="/plumb-logo.jpg"
-              alt="Plumb Fix Logo"
+              alt="John Doe Plumbing Logo"
               width={45}
               height={45}
               className="rounded-full"
             />
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Plumb Fix</h1>
+              <h1 className="text-xl font-bold text-gray-900">John Doe Plumbing</h1>
               <p className="text-sm text-gray-600">Professional Plumbing</p>
             </div>
           </div>
@@ -36,11 +76,11 @@ export default function HomePage() {
               Emergency
             </Link>
             <a
-              href="tel:+353852829497"
+              href="tel:+353899790634"
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
             >
               <Phone size={16} />
-              <span className="font-medium">085 282 9497</span>
+              <span className="font-medium">089 979 0634</span>
             </a>
           </div>
         </div>
@@ -71,13 +111,13 @@ export default function HomePage() {
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="tel:+353852829497"
+              href="tel:+353899790634"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
             >
               Call Now
             </a>
             <a
-              href="https://wa.me/353852829497"
+              href="https://wa.me/353899790634"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
@@ -236,8 +276,8 @@ export default function HomePage() {
                   <Phone className="text-blue-600 mt-1" size={20} />
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                    <a href="tel:+353852829497" className="text-blue-600 hover:text-blue-700">
-                      085 282 9497
+                    <a href="tel:+353899790634" className="text-blue-600 hover:text-blue-700">
+                      089 979 0634
                     </a>
                   </div>
                 </div>
@@ -250,12 +290,12 @@ export default function HomePage() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">WhatsApp</h3>
                     <a 
-                      href="https://wa.me/353852829497" 
+                      href="https://wa.me/353899790634" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-green-600 hover:text-green-700"
                     >
-                      085 282 9497
+                      089 979 0634
                     </a>
                   </div>
                 </div>
@@ -279,21 +319,21 @@ export default function HomePage() {
             {/* Quote Form */}
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Get A Quote</h3>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                     Name *
                   </label>
                   <div className="relative">
                     <User className="absolute left-3 top-3 text-gray-400" size={18} />
-                                         <input
-                       type="text"
-                       id="name"
-                       name="name"
-                       required
-                       className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500"
-                       placeholder="Your full name"
-                     />
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500"
+                      placeholder="Your full name"
+                    />
                   </div>
                 </div>
 
@@ -303,14 +343,14 @@ export default function HomePage() {
                   </label>
                   <div className="relative">
                     <Phone className="absolute left-3 top-3 text-gray-400" size={18} />
-                                         <input
-                       type="tel"
-                       id="phone"
-                       name="phone"
-                       required
-                       className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500"
-                       placeholder="Your phone number"
-                     />
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500"
+                      placeholder="Your phone number"
+                    />
                   </div>
                 </div>
 
@@ -320,13 +360,13 @@ export default function HomePage() {
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-3 text-gray-400" size={18} />
-                                         <input
-                       type="email"
-                       id="email"
-                       name="email"
-                       className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500"
-                       placeholder="Your email address"
-                     />
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500"
+                      placeholder="Your email address"
+                    />
                   </div>
                 </div>
 
@@ -334,11 +374,11 @@ export default function HomePage() {
                   <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
                     Service Needed
                   </label>
-                                     <select
-                     id="service"
-                     name="service"
-                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
-                   >
+                  <select
+                    id="service"
+                    name="service"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900"
+                  >
                     <option value="">Select a service</option>
                     <option value="pump-services">Pump Services</option>
                     <option value="bathroom-plumbing">Bathroom Plumbing</option>
@@ -355,21 +395,34 @@ export default function HomePage() {
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                     Message *
                   </label>
-                                     <textarea
-                     id="message"
-                     name="message"
-                     rows={4}
-                     required
-                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500"
-                     placeholder="Describe your plumbing needs..."
-                   ></textarea>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500"
+                    placeholder="Describe your plumbing needs..."
+                  ></textarea>
                 </div>
+
+                {submitStatus === 'success' && (
+                  <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+                    Thank you! Your message has been sent successfully. We'll get back to you soon.
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+                    Sorry, there was an error sending your message. Please try again or call us directly.
+                  </div>
+                )}
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                 >
-                  Get Free Quote
+                  {isSubmitting ? 'Sending...' : 'Get Free Quote'}
                 </button>
               </form>
             </div>
@@ -384,18 +437,18 @@ export default function HomePage() {
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
               <Image
                 src="/plumb-logo.jpg"
-                alt="Plumb Fix Logo"
+                alt="John Doe Plumbing Logo"
                 width={40}
                 height={40}
                 className="rounded-full"
               />
               <div>
-                <h3 className="text-lg font-bold">Plumb Fix</h3>
+                <h3 className="text-lg font-bold">John Doe Plumbing</h3>
                 <p className="text-sm text-gray-400">Professional Plumbing Services</p>
               </div>
             </div>
             <div className="text-center md:text-right">
-              <p className="text-gray-400">© 2024 Plumb Fix. All rights reserved.</p>
+              <p className="text-gray-400">© 2024 John Doe Plumbing. All rights reserved.</p>
               <p className="text-sm text-gray-500">25+ years of expert plumbing services</p>
             </div>
           </div>

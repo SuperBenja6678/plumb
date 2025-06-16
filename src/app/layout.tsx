@@ -6,12 +6,12 @@ import React from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Plumb Fix - Expert Plumbing Services in Dublin, Meath, Louth & Offaly',
-  description: 'Professional plumbing services including pump repairs, bathroom maintenance, water pressure boost, and emergency plumbing. 25+ years experience. Contact: 0852829497',
+  title: 'John Doe Plumbing - Expert Plumbing Services in Dublin, Meath, Louth & Offaly',
+  description: 'Professional plumbing services including pump repairs, bathroom maintenance, water pressure boost, and emergency plumbing. 25+ years experience. Contact: 0899790634',
   keywords: 'plumber, plumbing services, Dublin plumber, Meath plumber, water pump repair, bathroom plumbing, emergency plumber, water pressure boost, plumbing maintenance',
-  authors: [{ name: 'Plumb Fix' }],
-  creator: 'Plumb Fix',
-  publisher: 'Plumb Fix',
+  authors: [{ name: 'John Doe Plumbing' }],
+  creator: 'John Doe Plumbing',
+  publisher: 'John Doe Plumbing',
   formatDetection: {
     email: false,
     address: false,
@@ -22,16 +22,16 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Plumb Fix - Expert Plumbing Services',
+    title: 'John Doe Plumbing - Expert Plumbing Services',
     description: 'Professional plumbing services with 25+ years experience. Serving Dublin, Meath, Louth & Offaly.',
     url: 'https://plumbfix.ie',
-    siteName: 'Plumb Fix',
+    siteName: 'John Doe Plumbing',
     images: [
       {
         url: '/plumb-logo.jpg',
         width: 1200,
         height: 630,
-        alt: 'Plumb Fix - Professional Plumbing Services',
+        alt: 'John Doe Plumbing - Professional Plumbing Services',
       },
     ],
     locale: 'en_IE',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Plumb Fix - Expert Plumbing Services',
+    title: 'John Doe Plumbing - Expert Plumbing Services',
     description: 'Professional plumbing services with 25+ years experience. Serving Dublin, Meath, Louth & Offaly.',
     images: ['/plumb-logo.jpg'],
   },
@@ -74,12 +74,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "PlumbingService",
-              "name": "Plumb Fix",
+              "name": "John Doe Plumbing",
               "description": "Professional plumbing services including pump repairs, bathroom maintenance, water pressure boost, and emergency plumbing.",
               "url": "https://plumbfix.ie",
               "logo": "https://plumbfix.ie/plumb-logo.jpg",
               "image": "https://plumbfix.ie/plumb-logo.jpg",
-              "telephone": "+353852829497",
+              "telephone": "+353899790634",
               "priceRange": "€€",
               "address": {
                 "@type": "PostalAddress",

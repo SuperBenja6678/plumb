@@ -5,7 +5,7 @@ import { Phone, Wrench, Droplets, ArrowLeft, CheckCircle } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Plumbing Services - Pump Repair, Bathroom Plumbing | Plumb Fix Dublin',
+  title: 'Plumbing Services - Pump Repair, Bathroom Plumbing | John Doe Plumbing Dublin',
   description: 'Comprehensive plumbing services including pump installation, bathroom remodeling, leak repairs, and water tank maintenance. Expert plumbers serving Dublin, Meath, Louth & Offaly.',
   keywords: 'plumbing services, pump repair, bathroom plumbing, leak detection, water tank services, outdoor plumbing, Dublin plumber',
 }
@@ -123,13 +123,13 @@ export default function ServicesPage() {
           <div className="flex items-center space-x-3">
             <Image
               src="/plumb-logo.jpg"
-              alt="Plumb Fix Logo"
+              alt="John Doe Plumbing Logo"
               width={45}
               height={45}
               className="rounded-full"
             />
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Plumb Fix</h1>
+              <h1 className="text-xl font-bold text-gray-900">John Doe Plumbing</h1>
               <p className="text-sm text-gray-600">Professional Plumbing</p>
             </div>
           </div>
@@ -147,11 +147,11 @@ export default function ServicesPage() {
               Emergency
             </Link>
             <a
-              href="tel:+353852829497"
+              href="tel:+353899790634"
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
             >
               <Phone size={16} />
-              <span className="font-medium">085 282 9497</span>
+              <span className="font-medium">089 979 0634</span>
             </a>
           </div>
         </div>
@@ -232,13 +232,13 @@ export default function ServicesPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="tel:+353852829497"
+              href="tel:+353899790634"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
             >
               Call Now
             </a>
             <a
-              href="https://wa.me/353852829497"
+              href="https://wa.me/353899790634"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
@@ -262,18 +262,18 @@ export default function ServicesPage() {
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
               <Image
                 src="/plumb-logo.jpg"
-                alt="Plumb Fix Logo"
+                alt="John Doe Plumbing Logo"
                 width={40}
                 height={40}
                 className="rounded-full"
               />
               <div>
-                <h3 className="text-lg font-bold">Plumb Fix</h3>
+                <h3 className="text-lg font-bold">John Doe Plumbing</h3>
                 <p className="text-sm text-gray-400">Professional Plumbing Services</p>
               </div>
             </div>
             <div className="text-center md:text-right">
-              <p className="text-gray-400">© 2024 Plumb Fix. All rights reserved.</p>
+              <p className="text-gray-400">© 2024 John Doe Plumbing. All rights reserved.</p>
               <p className="text-sm text-gray-500">25+ years of expert plumbing services</p>
             </div>
           </div>

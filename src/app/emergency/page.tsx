@@ -5,8 +5,8 @@ import { Phone, Clock, AlertTriangle, Droplets, Wrench, ArrowLeft, CheckCircle }
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: '24/7 Emergency Plumber Dublin, Meath, Louth & Offaly | Plumb Fix',
-  description: '24/7 emergency plumbing services for burst pipes, leaks, pump failures & plumbing emergencies. Fast response across Dublin, Meath, Louth & Offaly. Call 085 282 9497',
+  title: '24/7 Emergency Plumber Dublin, Meath, Louth & Offaly | John Doe Plumbing',
+  description: '24/7 emergency plumbing services for burst pipes, leaks, pump failures & plumbing emergencies. Fast response across Dublin, Meath, Louth & Offaly. Call 089 979 0634',
   keywords: 'emergency plumber, 24/7 plumber, burst pipes, emergency plumbing Dublin, emergency plumber Meath, plumbing emergency',
 }
 
@@ -73,13 +73,13 @@ export default function EmergencyPage() {
           <div className="flex items-center space-x-3">
             <Image
               src="/plumb-logo.jpg"
-              alt="Plumb Fix Logo"
+              alt="John Doe Plumbing Logo"
               width={45}
               height={45}
               className="rounded-full"
             />
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Plumb Fix</h1>
+              <h1 className="text-xl font-bold text-gray-900">John Doe Plumbing</h1>
               <p className="text-sm text-gray-600">Professional Plumbing</p>
             </div>
           </div>
@@ -97,11 +97,11 @@ export default function EmergencyPage() {
               Services
             </Link>
             <a
-              href="tel:+353852829497"
+              href="tel:+353899790634"
               className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors"
             >
               <Phone size={16} />
-              <span className="font-medium">Emergency: 085 282 9497</span>
+              <span className="font-medium">Emergency: 089 979 0634</span>
             </a>
           </div>
         </div>
@@ -149,10 +149,10 @@ export default function EmergencyPage() {
           <div className="bg-red-600 text-white p-8 rounded-lg max-w-md mx-auto">
             <h3 className="text-2xl font-bold mb-4">Emergency Hotline</h3>
             <a
-              href="tel:+353852829497"
+              href="tel:+353899790634"
               className="text-4xl font-bold hover:text-red-200 transition-colors block"
             >
-              085 282 9497
+              089 979 0634
             </a>
             <p className="text-red-100 mt-4">Available 24 hours a day, 7 days a week</p>
           </div>
@@ -211,7 +211,7 @@ export default function EmergencyPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Call Us Immediately</h3>
-                  <p className="text-gray-600">Contact our emergency hotline: <a href="tel:+353852829497" className="text-blue-600 font-medium">085 282 9497</a></p>
+                  <p className="text-gray-600">Contact our emergency hotline: <a href="tel:+353899790634" className="text-blue-600 font-medium">089 979 0634</a></p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -263,14 +263,14 @@ export default function EmergencyPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <a
-              href="tel:+353852829497"
+              href="tel:+353899790634"
               className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-bold transition-colors flex items-center space-x-3"
             >
               <Phone size={24} />
-              <span>Emergency: 085 282 9497</span>
+              <span>Emergency: 089 979 0634</span>
             </a>
             <a
-              href="https://wa.me/353852829497"
+              href="https://wa.me/353899790634"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-bold transition-colors"
@@ -292,18 +292,18 @@ export default function EmergencyPage() {
             <div className="flex items-center space-x-3 mb-4 md:mb-0">
               <Image
                 src="/plumb-logo.jpg"
-                alt="Plumb Fix Logo"
+                alt="John Doe Plumbing Logo"
                 width={40}
                 height={40}
                 className="rounded-full"
               />
               <div>
-                <h3 className="text-lg font-bold">Plumb Fix</h3>
+                <h3 className="text-lg font-bold">John Doe Plumbing</h3>
                 <p className="text-sm text-gray-400">Professional Plumbing Services</p>
               </div>
             </div>
             <div className="text-center md:text-right">
-              <p className="text-gray-400">© 2024 Plumb Fix. All rights reserved.</p>
+              <p className="text-gray-400">© 2024 John Doe Plumbing. All rights reserved.</p>
               <p className="text-sm text-gray-500">25+ years of expert plumbing services</p>
             </div>
           </div>
