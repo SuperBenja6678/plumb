@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Phone, MapPin, Clock, Wrench, Droplets, CheckCircle, Mail, User } from 'lucide-react'
-import emailjs from '@emailjs/browser'
-import { emailjsConfig } from '@/lib/emailjs-config'
 
 export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -18,26 +16,33 @@ export default function HomePage() {
     const form = e.currentTarget
     const formData = new FormData(form)
     
-    const templateParams = {
-      from_name: formData.get('name'),
-      from_phone: formData.get('phone'),
-      from_email: formData.get('email'),
+    const webhookData = {
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      email: formData.get('email'),
       service: formData.get('service'),
       message: formData.get('message'),
+      timestamp: new Date().toISOString(),
+      source: 'John Doe Plumbing Website'
     }
 
     try {
-      // EmailJS configuration - replace with your actual credentials
-      await emailjs.send(
-        emailjsConfig.serviceId,
-        emailjsConfig.templateId,
-        templateParams,
-        emailjsConfig.publicKey
-      )
-      setSubmitStatus('success')
-      form.reset()
+      const response = await fetch('https://hook.eu2.make.com/r4q7bkwfcpb5zxpql3n3pjt699gqptkw', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(webhookData),
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        form.reset()
+      } else {
+        throw new Error('Failed to submit form')
+      }
     } catch (error) {
-      console.error('EmailJS error:', error)
+      console.error('Webhook error:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
